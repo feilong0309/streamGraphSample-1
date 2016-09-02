@@ -14,5 +14,5 @@ clean:
 	rm streamGraphSample streamGraphSample.o streamNS.o
 
 test:
-	./streamGraphSample sns testdata/data 80000 testdata/data2
+	./streamGraphSample sns data 80000 data2
 	
