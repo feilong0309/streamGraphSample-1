@@ -23,10 +23,22 @@ int main( int argc , char* argv[] )
 		myStreamNS.saveSampleGraph();
 		return 0;
 	}
+	else if ( method == "SES" || method == "ses" )
+	{
+		streamES myStreamES( input , sampleSize , output );
+		time_t t_start,t_end;
+		t_start = time(NULL);
+		myStreamES.process();
+		t_end = time(NULL);
+		cout<<"time cost : "<<difftime(t_end,t_start)<<endl;
+		myStreamES.saveSampleGraph();
+		return 0;
+	}
 	else
 	{
 		cout<<" command method inputfile sampleSize" <<endl;
 		cout<<" streamNS : method = SNS || method = sns "<<endl;
+		cout<<" streamES : method = SES || method = ses "<<endl;
 		cout<<argv[0]<<"  "<<argv[1]<<"  "<<argv[2]<<"  "<<argv[3]<<"  "<<argv[4]<<endl;
 		return 0;
 	}
