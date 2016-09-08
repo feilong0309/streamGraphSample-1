@@ -5,6 +5,7 @@
 
 #include "streamNS.h"
 #include "streamES.h"
+#include "piesN.h"
 
 using namespace std;
 
@@ -17,9 +18,11 @@ public:
 	string inputFile;
 	int sampleSize;
 	string outputFile;
+	float paraN;
 
 	void streamNS( string inputFile , int sampleSize , string outputFile );
 	void streamES( string inputFile , int sampleSize , string outputFile );
+	void piesN( string inputFile , int sampleSize , string outputFile , float paraN );
 };
 
 
