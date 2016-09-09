@@ -53,11 +53,23 @@ int main( int argc , char* argv[] )
 		myPiesN.saveSampleGraph();
 		return 0;
 	}
+	else if ( method == "ESI" || method == "esi" )
+	{
+		esi myEsi( input , sampleSize , output );
+		time_t t_start,t_end;
+		t_start = time(NULL);
+		myEsi.process();
+		t_end = time(NULL);
+		cout<<"time cost : "<<difftime(t_end,t_start)<<endl;
+		myEsi.saveSampleGraph();
+		return 0;
+	}
 	else
 	{
 		cout<<" command method inputfile sampleSize outputfile paraN(only for piesN)" <<endl;
 		cout<<" streamNS : method = SNS || method = sns "<<endl;
 		cout<<" streamES : method = SES || method = ses "<<endl;
+		cout<<" ES-i : method = ESI || method = esi "<<endl;
 		cout<<" piesN : method = PIESN || method = piesN || method = piesn "<<endl;
 		return 0;
 	}

@@ -1,8 +1,8 @@
 CC 	= g++ --std=c++11
 CXXFLAG	= -pthread
 
-streamGraphSample:streamGraphSample.o streamNS.o streamES.o piesN.o
-	$(CC) $(CXXFLAG) -o streamGraphSample streamGraphSample.o streamNS.o streamES.o piesN.o
+streamGraphSample:streamGraphSample.o streamNS.o streamES.o piesN.o esi.o
+	$(CC) $(CXXFLAG) -o streamGraphSample streamGraphSample.o streamNS.o streamES.o piesN.o esi.o
 
 streamGraphSample.o:streamGraphSample.cpp streamGraphSample.h
 	$(CC) $(CXXFLAG) -c streamGraphSample.cpp
@@ -16,9 +16,12 @@ streamES.o:streamES.cpp streamES.h
 piesN.o:piesN.cpp piesN.h
 	$(CC) $(CXXFLAG) -c piesN.cpp
 
+esi.o:esi.cpp esi.h
+	$(CC) $(CXXFLAG) -c esi.cpp
+
 clean:
-	rm streamGraphSample streamGraphSample.o streamNS.o streamES.o piesN.o
+	rm streamGraphSample streamGraphSample.o streamNS.o streamES.o piesN.o esi.o
 
 test:
-	./streamGraphSample piesn testdata/rmat-15-8 6000 testdata/dataPIESN 1
+	./streamGraphSample ses testdata/rmat-15-16 6000 testdata/dataESI
 	
